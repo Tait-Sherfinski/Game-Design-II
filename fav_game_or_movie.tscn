@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://duomkimmsfsn6"]
+
+[ext_resource type="Script" path="res://FavGameOrMovie.gd" id="1_x570q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pt4ie"]
+font_size = 32
+
+[sub_resource type="Theme" id="Theme_r1hbf"]
+default_font_size = 30
+
+[sub_resource type="Theme" id="Theme_46wwv"]
+default_font_size = 30
+
+[sub_resource type="Theme" id="Theme_hudk2"]
+default_font_size = 30
+
+[node name="FavGameOrMovie" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x570q")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 100.0
+offset_right = 845.0
+offset_bottom = 430.0
+label_settings = SubResource("LabelSettings_pt4ie")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 504.0
+offset_right = 240.0
+offset_bottom = 616.0
+theme = SubResource("Theme_r1hbf")
+text = "Show"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 504.0
+offset_right = 656.0
+offset_bottom = 616.0
+theme = SubResource("Theme_46wwv")
+text = "Clear"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 504.0
+offset_right = 1072.0
+offset_bottom = 616.0
+theme = SubResource("Theme_hudk2")
+text = "Exit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
