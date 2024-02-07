@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://c2adgqnc1tnp1"]
+
+[ext_resource type="Script" path="res://player3D.gd" id="1_fx5yr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iceor"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_hiomo"]
+sky_material = SubResource("ProceduralSkyMaterial_iceor")
+
+[sub_resource type="Environment" id="Environment_q5od5"]
+background_mode = 2
+sky = SubResource("Sky_hiomo")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iqx41"]
+size = Vector2(500, 500)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ti4rb"]
+albedo_color = Color(0, 0.698039, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4bwt6"]
+albedo_color = Color(0, 0.129412, 0.835294, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_l63k7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xs7ho"]
+
+[node name="scene3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q5od5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 3039.28, 0)
+shadow_enabled = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+use_collision = true
+mesh = SubResource("PlaneMesh_iqx41")
+material = SubResource("StandardMaterial3D_ti4rb")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(11.4099, 0.422011, 9.44033)
+material = SubResource("StandardMaterial3D_4bwt6")
+
+[node name="player3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_fx5yr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.595824, 1.31696, -4.05223)
+mesh = SubResource("CapsuleMesh_l63k7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.604297, 1.29753, -4.07139)
+shape = SubResource("CapsuleShape3D_xs7ho")
+
+[node name="Camera3D" type="Camera3D" parent="player3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.510102, 1.52659, -3.99638)
