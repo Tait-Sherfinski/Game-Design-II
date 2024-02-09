@@ -66,6 +66,10 @@ shape = SubResource("CapsuleShape3D_xs7ho")
 [node name="Camera3D" type="Camera3D" parent="player3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.510102, 1.52659, -3.99638)
 
+[node name="SpringArm3D" type="SpringArm3D" parent="player3D"]
+transform = Transform3D(0.997564, -0.0697565, 0, 0.0693743, 0.992099, 0.104528, -0.00729154, -0.104274, 0.994522, 0.524738, 2.85853, -3.81826)
+spring_length = 6.0
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14202, 0.576616, 6.14115)
 use_collision = true

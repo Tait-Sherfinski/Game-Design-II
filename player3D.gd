@@ -9,6 +9,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 const CAM_SENSITIVITY = 0.03
 @onready var camera = $Camera3D
+@onready var camera_arm = $SpringArm3D
+var first_person = true
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -32,11 +34,23 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
+	
+	
 	if Input.is_action_just_pressed("ui_cancel"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			
+	if Input.is_action_just_pressed("change_camera"):
+		toggle_camera_parent()
+		
+func toggle_camera_parent():
+	var parent = ""
+	if first_person:
+		parent = "SpringArm3D"
+	var child = camera
+	child.get_parent().remove_child(child)
 			
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
