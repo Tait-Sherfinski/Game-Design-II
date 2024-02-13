@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2adgqnc1tnp1"]
+[gd_scene load_steps=13 format=3 uid="uid://c2adgqnc1tnp1"]
 
 [ext_resource type="Script" path="res://player3D.gd" id="1_fx5yr"]
 [ext_resource type="PackedScene" uid="uid://h1qjy54aey1t" path="res://models/gobot.glb" id="2_7pxx5"]
@@ -31,6 +31,9 @@ albedo_color = Color(0, 0.129412, 0.835294, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgkqg"]
 albedo_color = Color(0, 0.360784, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htm1q"]
+albedo_color = Color(0.384314, 0, 0, 1)
 
 [node name="scene3D" type="Node3D"]
 
@@ -65,17 +68,15 @@ mesh = SubResource("CapsuleMesh_l63k7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.604297, 1.29753, -4.07139)
 shape = SubResource("CapsuleShape3D_xs7ho")
 
-[node name="Camera3D" type="Camera3D" parent="player3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.510102, 1.52659, -3.99638)
-
 [node name="SpringArm3D" type="SpringArm3D" parent="player3D"]
-transform = Transform3D(0.997564, -0.0697565, 0, 0.0693743, 0.992099, 0.104528, -0.00729154, -0.104274, 0.994522, 0.524738, 3.34133, -3.81826)
+transform = Transform3D(0.997564, -0.0697565, 0, 0.0693743, 0.992099, 0.104528, -0.00729154, -0.104274, 0.994522, 0.524738, 3.28236, -2.55805)
 spring_length = 6.0
 
 [node name="Head" type="Node3D" parent="player3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.833394, 0.980247, -3.92503)
 
 [node name="Camera3D" type="Camera3D" parent="player3D/Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.482594, 3.58137, -1.82032)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323292, 0.546343, -0.0713518)
 
 [node name="gobot" parent="player3D" instance=ExtResource("2_7pxx5")]
 transform = Transform3D(-1.35, 0, -1.18021e-07, 0, 1.35, 0, 1.18021e-07, 0, -1.35, 0.625975, 0.513936, -4.01129)
@@ -103,3 +104,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54267, 2.50185, 11.2596)
 use_collision = true
 size = Vector3(2.1178, 1, 1.56585)
 material = SubResource("StandardMaterial3D_kgkqg")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.2475, 8.32117, 7.61018)
+radius = 4.0305
+height = 19.1441
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.5022, 9.10138, 31.2649)
+radius = 4.0305
+height = 19.1441
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0518, 8.89698, -19.9578)
+radius = 4.0305
+height = 19.1441
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.1729, 26.6266, -19.8634)
+size = Vector3(17.697, 82.387, 515.67)
+material = SubResource("StandardMaterial3D_htm1q")
