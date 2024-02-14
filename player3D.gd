@@ -112,7 +112,6 @@ func _unhandled_input(event):
 		if first_person:
 			self.rotate_y(-event.relative.x * (CAM_SENSITIVITY / 10.0))
 			camera.rotate_x(-event.relative.y * (CAM_SENSITIVITY / 10.0))
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 		else:
 			self.rotate_y(-event.relative.x * (CAM_SENSITIVITY / 10.0))
 			camera_arm.rotate_x(-event.relative.y * (CAM_SENSITIVITY / 10.0))
