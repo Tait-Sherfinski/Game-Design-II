@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c2adgqnc1tnp1"]
+[gd_scene load_steps=17 format=3 uid="uid://c2adgqnc1tnp1"]
 
 [ext_resource type="Script" path="res://player3D.gd" id="1_fx5yr"]
 [ext_resource type="PackedScene" uid="uid://h1qjy54aey1t" path="res://models/gobot.glb" id="2_7pxx5"]
@@ -6,7 +6,6 @@
 [ext_resource type="Resource" path="res://terrain/data.hterrain" id="4_0t16j"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="5_t1kh7"]
 [ext_resource type="Texture2D" uid="uid://bv8ra8bnwkunh" path="res://terrain/textures/Grass/Grass001_1K-JPG_Color.jpg" id="6_onpsw"]
-[ext_resource type="Texture2D" uid="uid://cdk2h3mmy4lgo" path="res://terrain/textures/Rock/Concrete044D_1K-JPG/Concrete044D_1K-JPG_Roughness.jpg" id="7_dad0s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iceor"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,7 +39,7 @@ albedo_color = Color(0, 0.360784, 1, 1)
 [sub_resource type="Resource" id="Resource_wfpja"]
 script = ExtResource("5_t1kh7")
 mode = 0
-textures = [[ExtResource("6_onpsw"), ExtResource("7_dad0s")], [null, null]]
+textures = [[ExtResource("6_onpsw"), null], [null, null]]
 
 [node name="scene3D" type="Node3D"]
 
@@ -49,7 +48,7 @@ environment = SubResource("Environment_q5od5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 3039.28, 0)
-light_color = Color(0, 0.560784, 0, 1)
+light_color = Color(1, 1, 0.505882, 1)
 light_energy = 3.519
 shadow_enabled = true
 
@@ -65,7 +64,7 @@ size = Vector3(11.4099, 0.422011, 9.44033)
 material = SubResource("StandardMaterial3D_4bwt6")
 
 [node name="player3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.96518, 18.3852, -21.2119)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7841, 56.3012, -56.0105)
 script = ExtResource("1_fx5yr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player3D"]
@@ -74,7 +73,7 @@ visible = false
 mesh = SubResource("CapsuleMesh_l63k7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0808952, 1.08876, -0.185482)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.13877, 1.92928, -0.151787)
 shape = SubResource("CapsuleShape3D_xs7ho")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="player3D"]
@@ -85,10 +84,10 @@ spring_length = 6.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.833, 0.98, -3.925)
 
 [node name="Camera3D" type="Camera3D" parent="player3D/Head"]
-transform = Transform3D(0.999834, 0, -0.0182377, 0, 1, 0, 0.0182377, 0, 0.999834, -0.783673, 0.515894, 4.05972)
+transform = Transform3D(0.999834, 0, -0.0182377, -0.00984657, 0.841728, -0.539813, 0.0153512, 0.539903, 0.841588, -0.921983, 1.53981, 3.10723)
 
 [node name="gobot" parent="player3D" instance=ExtResource("2_7pxx5")]
-transform = Transform3D(-1.35, 0, -1.18021e-07, 0, 1.35, 0, 1.18021e-07, 0, -1.35, 0, 0, 0)
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 0, 0, 0)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14202, 0.576616, 6.14115)
@@ -115,6 +114,7 @@ size = Vector3(2.1178, 1, 1.56585)
 material = SubResource("StandardMaterial3D_kgkqg")
 
 [node name="HTerrain" type="Node3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 script = ExtResource("3_eq7a5")
 centered = true
 _terrain_data = ExtResource("4_0t16j")
