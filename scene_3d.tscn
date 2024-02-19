@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://c2adgqnc1tnp1"]
+[gd_scene load_steps=16 format=3 uid="uid://c2adgqnc1tnp1"]
 
-[ext_resource type="Script" path="res://player3D.gd" id="1_fx5yr"]
-[ext_resource type="PackedScene" uid="uid://h1qjy54aey1t" path="res://models/gobot.glb" id="2_7pxx5"]
+[ext_resource type="PackedScene" uid="uid://bala2ogmq27cs" path="res://player_3d.tscn" id="1_lchqh"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="3_eq7a5"]
 [ext_resource type="Resource" path="res://terrain/data.hterrain" id="4_0t16j"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="5_t1kh7"]
+[ext_resource type="PackedScene" uid="uid://dui7brlp1aghp" path="res://enemy_3d.tscn" id="6_e12kd"]
 [ext_resource type="Texture2D" uid="uid://bv8ra8bnwkunh" path="res://terrain/textures/Grass/Grass001_1K-JPG_Color.jpg" id="6_onpsw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iceor"]
@@ -29,10 +29,6 @@ albedo_color = Color(0.501961, 0.501961, 0.501961, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4bwt6"]
 albedo_color = Color(0, 0.129412, 0.835294, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_l63k7"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xs7ho"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgkqg"]
 albedo_color = Color(0, 0.360784, 1, 1)
 
@@ -40,6 +36,9 @@ albedo_color = Color(0, 0.360784, 1, 1)
 script = ExtResource("5_t1kh7")
 mode = 0
 textures = [[ExtResource("6_onpsw"), null], [null, null]]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_dyu4y"]
+agent_height = 2.0
 
 [node name="scene3D" type="Node3D"]
 
@@ -63,31 +62,7 @@ use_collision = true
 size = Vector3(11.4099, 0.422011, 9.44033)
 material = SubResource("StandardMaterial3D_4bwt6")
 
-[node name="player3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7841, 56.3012, -56.0105)
-script = ExtResource("1_fx5yr")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="player3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
-visible = false
-mesh = SubResource("CapsuleMesh_l63k7")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="player3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.13877, 1.92928, -0.151787)
-shape = SubResource("CapsuleShape3D_xs7ho")
-
-[node name="SpringArm3D" type="SpringArm3D" parent="player3D"]
-transform = Transform3D(0.997564, -0.0697565, 0, 0.0693743, 0.992099, 0.104528, -0.00729154, -0.104274, 0.994522, 0.524738, 3.28236, 3.09978)
-spring_length = 6.0
-
-[node name="Head" type="Node3D" parent="player3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.833, 0.98, -3.925)
-
-[node name="Camera3D" type="Camera3D" parent="player3D/Head"]
-transform = Transform3D(0.999834, 0, -0.0182377, -0.00984657, 0.841728, -0.539813, 0.0153512, 0.539903, 0.841588, -0.921983, 1.53981, 3.10723)
-
-[node name="gobot" parent="player3D" instance=ExtResource("2_7pxx5")]
-transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 0, 0, 0)
+[node name="player3D" parent="." instance=ExtResource("1_lchqh")]
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14202, 0.576616, 6.14115)
@@ -132,3 +107,9 @@ shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_dyu4y")
+
+[node name="enemy3D" parent="." instance=ExtResource("6_e12kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21861, 0.0287857, -1.2446)
