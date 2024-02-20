@@ -16,34 +16,28 @@ radius = 32.9589
 [sub_resource type="SphereShape3D" id="SphereShape3D_vlhd5"]
 
 [node name="enemy3D" type="CharacterBody3D" groups=["Enemy"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24629, 0.386478, -1.3291)
 script = ExtResource("1_43t1j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.3951, 41.6634, -12.956)
 mesh = SubResource("CapsuleMesh_0nmif")
 surface_material_override/0 = SubResource("StandardMaterial3D_xy8gg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.4015, 41.746, -12.878)
 shape = SubResource("CapsuleShape3D_5dq21")
 
 [node name="AttackRange" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.0826, 42.3447, -3.34908)
 shape = SubResource("CylinderShape3D_shwyh")
 
 [node name="AttackArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.4015, 41.746, -12.878)
 shape = SubResource("CapsuleShape3D_5dq21")
 
 [node name="DamageArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.4973, 42.3589, -13.0264)
 shape = SubResource("SphereShape3D_vlhd5")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

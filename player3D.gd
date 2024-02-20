@@ -5,7 +5,7 @@ const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.5
 var SPEED = WALK_SPEED
 
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 7.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -25,6 +25,11 @@ var FOV_CHANGE = 1.0
 const BOB_FREQ = 2.4
 const BOB_AMP = 0.08
 var t_bob = 0.0
+
+var MAX_HEALTH = 50
+var HEALTH = MAX_HEALTH
+var damage_lock = 0.0
+var inertia = Vector3.ZERO
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -77,10 +82,27 @@ func _physics_process(delta):
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = headbob(t_bob)	
-	
+	camera.transform.origin = headbob(t_bob)
+		
+	for enemy in get_tree().get_nodes_in_group("Enemy"):
+		if $Feet.overlaps_area(enemy.dmg_area):
+			enemy.queue_free()
+	damage_lock = max(damage_lock - delta, 0.0)
+	velocity += inertia
+	inertia = inertia.move_toward(Vector3(), delta*1000.0)
 	
 	move_and_slide()
+	
+	
+func take_damage(dmg):
+	if damage_lock == 0.0:
+		damage_lock = 0.5
+		HEALTH -= dmg
+		if HEALTH <= 0:
+			await get_tree().create_timer(0.25).timeout
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			OS.alert("You died!")
+			get_tree().reload_current_scene()
 	
 	
 func headbob(time):
