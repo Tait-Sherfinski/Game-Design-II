@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 
-const WALK_SPEED = 5.0
-const SPRINT_SPEED = 8.5
+const WALK_SPEED = 7.0
+const SPRINT_SPEED = 10.5
 var SPEED = WALK_SPEED
 
 const JUMP_VELOCITY = 7.0
@@ -30,6 +30,9 @@ var MAX_HEALTH = 50
 var HEALTH = MAX_HEALTH
 var damage_lock = 0.0
 var inertia = Vector3.ZERO
+
+var dmg_shader = preload("res://assets/shaders/take_damage.tres")
+@onready var HUD = get_tree().get_first_node_in_group("HUD")
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -91,6 +94,11 @@ func _physics_process(delta):
 	velocity += inertia
 	inertia = inertia.move_toward(Vector3(), delta*1000.0)
 	
+	if damage_lock == 0.0:
+		HUD.dmg_overlay.material = 0
+	HUD.healthbar.max_value = MAX_HEALTH
+	HUD.healthbar.value = int(HEALTH)
+	
 	move_and_slide()
 	
 	
@@ -98,6 +106,9 @@ func take_damage(dmg):
 	if damage_lock == 0.0:
 		damage_lock = 0.5
 		HEALTH -= dmg
+		var dmg_intensity = clamp(1.0 - ((HEALTH+0.01)/MAX_HEALTH), 0.1, 0.8)
+		HUD.dmg_overlay.material = dmg_shader.duplicate()
+		HUD.dmg_overlay.material.set_shader_parameter("intensity", dmg_intensity)
 		if HEALTH <= 0:
 			await get_tree().create_timer(0.25).timeout
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c2adgqnc1tnp1"]
+[gd_scene load_steps=17 format=3 uid="uid://c2adgqnc1tnp1"]
 
 [ext_resource type="PackedScene" uid="uid://bala2ogmq27cs" path="res://player_3d.tscn" id="1_lchqh"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="3_eq7a5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="5_t1kh7"]
 [ext_resource type="PackedScene" uid="uid://dui7brlp1aghp" path="res://enemy_3d.tscn" id="6_e12kd"]
 [ext_resource type="Texture2D" uid="uid://bv8ra8bnwkunh" path="res://terrain/textures/Grass/Grass001_1K-JPG_Color.jpg" id="6_onpsw"]
+[ext_resource type="PackedScene" uid="uid://1v843qr3enho" path="res://playerhud_3d.tscn" id="7_74g1h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iceor"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -41,6 +42,7 @@ textures = [[ExtResource("6_onpsw"), null], [null, null]]
 agent_height = 2.0
 
 [node name="scene3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.292633, 3.63706, 2.32405)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_q5od5")
@@ -113,4 +115,9 @@ shader_params/u_tile_reduction = null
 navigation_mesh = SubResource("NavigationMesh_dyu4y")
 
 [node name="enemy3D" parent="." instance=ExtResource("6_e12kd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.8658, 33.3489, -7.1039)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.7976, 38.1289, 2.1919)
+
+[node name="playerhud3d" parent="." instance=ExtResource("7_74g1h")]
+
+[node name="enemy3D2" parent="." instance=ExtResource("6_e12kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.191, 29.864, 22.377)
