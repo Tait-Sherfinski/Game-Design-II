@@ -95,7 +95,7 @@ func _physics_process(delta):
 	inertia = inertia.move_toward(Vector3(), delta*1000.0)
 	
 	if damage_lock == 0.0:
-		HUD.dmg_overlay.material = 0
+		HUD.dmg_overlay.material = null
 	HUD.healthbar.max_value = MAX_HEALTH
 	HUD.healthbar.value = int(HEALTH)
 	
