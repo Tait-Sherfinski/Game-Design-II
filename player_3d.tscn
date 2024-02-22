@@ -21,7 +21,7 @@ mesh = SubResource("CapsuleMesh_l63k7")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_xs7ho")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="."]
+[node name="SpringArm3D" type="SpringArm3D" parent="." groups=["Player"]]
 transform = Transform3D(0.997564, -0.0697565, 0, 0.0693743, 0.992099, 0.104528, -0.00729154, -0.104274, 0.994522, 0, 4, 4)
 spring_length = 6.0
 

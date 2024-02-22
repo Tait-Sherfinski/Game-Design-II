@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpim4kqvinat4"]
+
+[ext_resource type="Script" path="res://Goal.gd" id="1_cdf0x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oe5da"]
+transparency = 1
+albedo_color = Color(0.235294, 1, 0.027451, 0.752941)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tig4v"]
+material = SubResource("StandardMaterial3D_oe5da")
+top_radius = 4.0
+bottom_radius = 4.0
+height = 10.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_87sgq"]
+height = 10.0
+radius = 3.5
+
+[node name="Goal" type="Area3D" groups=["Player"]]
+script = ExtResource("1_cdf0x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("CylinderMesh_tig4v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_87sgq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

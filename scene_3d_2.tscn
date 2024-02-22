@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://bua0yeoag6313"]
+
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_up5mf"]
+[ext_resource type="Resource" path="res://terrain/map2/data.hterrain" id="2_igm5t"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_3gc16"]
+[ext_resource type="PackedScene" uid="uid://bala2ogmq27cs" path="res://player_3d.tscn" id="4_x7ix0"]
+[ext_resource type="PackedScene" uid="uid://1v843qr3enho" path="res://playerhud_3d.tscn" id="5_yqlbl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dgfkw"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_uxe88"]
+sky_material = SubResource("ProceduralSkyMaterial_dgfkw")
+
+[sub_resource type="Environment" id="Environment_a37xw"]
+background_mode = 2
+sky = SubResource("Sky_uxe88")
+tonemap_mode = 2
+
+[sub_resource type="Resource" id="Resource_0x22a"]
+script = ExtResource("3_3gc16")
+mode = 0
+textures = [[], []]
+
+[node name="Scene3D2" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a37xw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 9381.06, 0)
+light_color = Color(1, 0.811765, 0, 1)
+shadow_enabled = true
+
+[node name="HTerrain" type="Node3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+script = ExtResource("1_up5mf")
+centered = true
+_terrain_data = ExtResource("2_igm5t")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_0x22a")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+
+[node name="player3D" parent="." instance=ExtResource("4_x7ix0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -230.002, 0, 16.9344)
+
+[node name="playerhud3d" parent="." instance=ExtResource("5_yqlbl")]
