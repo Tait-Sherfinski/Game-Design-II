@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bua0yeoag6313"]
+[gd_scene load_steps=11 format=3 uid="uid://bua0yeoag6313"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_up5mf"]
 [ext_resource type="Resource" path="res://terrain/map2/data.hterrain" id="2_igm5t"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_3gc16"]
+[ext_resource type="Texture2D" uid="uid://bv8ra8bnwkunh" path="res://terrain/textures/Grass/Grass001_1K-JPG_Color.jpg" id="4_brr30"]
 [ext_resource type="PackedScene" uid="uid://bala2ogmq27cs" path="res://player_3d.tscn" id="4_x7ix0"]
 [ext_resource type="PackedScene" uid="uid://1v843qr3enho" path="res://playerhud_3d.tscn" id="5_yqlbl"]
 
@@ -21,7 +22,7 @@ tonemap_mode = 2
 [sub_resource type="Resource" id="Resource_0x22a"]
 script = ExtResource("3_3gc16")
 mode = 0
-textures = [[], []]
+textures = [[ExtResource("4_brr30"), null], [null, null]]
 
 [node name="Scene3D2" type="Node3D"]
 
