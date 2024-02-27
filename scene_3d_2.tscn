@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bua0yeoag6313"]
+[gd_scene load_steps=12 format=3 uid="uid://bua0yeoag6313"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_up5mf"]
 [ext_resource type="Resource" path="res://terrain/map2/data.hterrain" id="2_igm5t"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bv8ra8bnwkunh" path="res://terrain/textures/Grass/Grass001_1K-JPG_Color.jpg" id="4_brr30"]
 [ext_resource type="PackedScene" uid="uid://bala2ogmq27cs" path="res://player_3d.tscn" id="4_x7ix0"]
 [ext_resource type="PackedScene" uid="uid://1v843qr3enho" path="res://playerhud_3d.tscn" id="5_yqlbl"]
+[ext_resource type="PackedScene" uid="uid://dpim4kqvinat4" path="res://goal.tscn" id="7_6jr41"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dgfkw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -55,6 +56,9 @@ shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 
 [node name="player3D" parent="." instance=ExtResource("4_x7ix0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -230.002, 0, 16.9344)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -230.065, 0.00190091, 16.9041)
 
 [node name="playerhud3d" parent="." instance=ExtResource("5_yqlbl")]
+
+[node name="Goal" parent="." instance=ExtResource("7_6jr41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -243.469, 56.2297, -222.597)
