@@ -36,7 +36,7 @@ light_color = Color(1, 0.811765, 0, 1)
 shadow_enabled = true
 
 [node name="HTerrain" type="Node3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_up5mf")
 centered = true
 _terrain_data = ExtResource("2_igm5t")
@@ -56,9 +56,63 @@ shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 
 [node name="player3D" parent="." instance=ExtResource("4_x7ix0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -230.065, 0.00190091, 16.9041)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -190.586, 36.3036, -223.797)
 
 [node name="playerhud3d" parent="." instance=ExtResource("5_yqlbl")]
 
 [node name="Goal" parent="." instance=ExtResource("7_6jr41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -243.469, 56.2297, -222.597)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -228.368, 22.0433, -220.607)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -162.179, -18.9317, -194.921)
+use_collision = true
+radius = 8.845
+height = 119.848
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -220.181, -4.13698, -222.39)
+use_collision = true
+radius = 8.845
+height = 119.848
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -211.275, -6.34755, -222.712)
+use_collision = true
+radius = 8.845
+height = 119.848
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -203.027, -8.15331, -223.879)
+use_collision = true
+radius = 8.845
+height = 119.848
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -194.481, -9.91885, -224.165)
+use_collision = true
+radius = 8.845
+height = 119.848
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -187.298, -11.2864, -222.059)
+use_collision = true
+radius = 8.845
+height = 119.848
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -182.36, -34.4577, -213.464)
+use_collision = true
+radius = 8.845
+height = 229.998
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -174.12, -15.0594, -207.963)
+use_collision = true
+radius = 8.845
+height = 119.848
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -170.817, -16.6796, -198.513)
+use_collision = true
+radius = 8.845
+height = 119.848
