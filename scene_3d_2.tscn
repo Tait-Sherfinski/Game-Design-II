@@ -116,3 +116,9 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -170.817, -16.6796, -19
 use_collision = true
 radius = 8.845
 height = 119.848
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -157.08, -21.6979, -190.073)
+use_collision = true
+radius = 8.845
+height = 119.848
