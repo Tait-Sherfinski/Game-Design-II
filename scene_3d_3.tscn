@@ -1,7 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b741enta1ec0n"]
+[gd_scene load_steps=12 format=3 uid="uid://b741enta1ec0n"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_rpcc3"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="2_ejt5t"]
+[ext_resource type="Resource" path="res://terrain/data.hterrain" id="2_gjinr"]
+[ext_resource type="Texture2D" uid="uid://bv8ra8bnwkunh" path="res://terrain/textures/Grass/Grass001_1K-JPG_Color.jpg" id="4_fy84g"]
+[ext_resource type="PackedScene" uid="uid://bala2ogmq27cs" path="res://player_3d.tscn" id="5_erqj6"]
+[ext_resource type="PackedScene" uid="uid://dpim4kqvinat4" path="res://goal.tscn" id="6_1bsyq"]
+[ext_resource type="PackedScene" uid="uid://dui7brlp1aghp" path="res://enemy_3d.tscn" id="7_y3ucc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dxqf1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,10 +20,10 @@ background_mode = 2
 sky = SubResource("Sky_mok5u")
 tonemap_mode = 2
 
-[sub_resource type="Resource" id="Resource_biyk1"]
+[sub_resource type="Resource" id="Resource_0p3ac"]
 script = ExtResource("2_ejt5t")
 mode = 0
-textures = [[], []]
+textures = [[ExtResource("4_fy84g")], [null]]
 
 [node name="Scene3D3" type="Node3D"]
 
@@ -27,13 +32,14 @@ environment = SubResource("Environment_7puln")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 110.154, 0)
-light_color = Color(1, 0.811765, 0, 1)
+light_color = Color(0.345098, 0.309804, 1, 1)
+light_energy = 9.242
 shadow_enabled = true
 
 [node name="HTerrain" type="Node3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_rpcc3")
-_terrain_data = null
+centered = true
+_terrain_data = ExtResource("2_gjinr")
 chunk_size = 32
 collision_enabled = true
 collision_layer = 1
@@ -41,10 +47,25 @@ collision_mask = 1
 shader_type = "Classic4Lite"
 custom_shader = null
 custom_globalmap_shader = null
-texture_set = SubResource("Resource_biyk1")
+texture_set = SubResource("Resource_0p3ac")
 render_layers = 1
 cast_shadow = 1
 shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
+
+[node name="player3D" parent="." instance=ExtResource("5_erqj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.0965, 17.3133, 24.4522)
+
+[node name="Goal" parent="." instance=ExtResource("6_1bsyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.734, 28.7459, -115.022)
+
+[node name="enemy3D" parent="." instance=ExtResource("7_y3ucc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.4939, 10.8553, -31.8959)
+
+[node name="enemy3D2" parent="." instance=ExtResource("7_y3ucc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.3711, 18.3346, -111.706)
+
+[node name="enemy3D3" parent="." instance=ExtResource("7_y3ucc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0753, 2.17875, 88.2572)

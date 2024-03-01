@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c2adgqnc1tnp1"]
+[gd_scene load_steps=22 format=3 uid="uid://c2adgqnc1tnp1"]
 
 [ext_resource type="PackedScene" uid="uid://bala2ogmq27cs" path="res://player_3d.tscn" id="1_lchqh"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="3_eq7a5"]
@@ -41,6 +41,14 @@ textures = [[ExtResource("6_onpsw"), null], [null, null]]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_dyu4y"]
 agent_height = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tx1vj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xxsue"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7lnw8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5dy3t"]
 
 [node name="scene3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.292633, 3.63706, 2.32405)
@@ -93,7 +101,7 @@ size = Vector3(2.1178, 1, 1.56585)
 material = SubResource("StandardMaterial3D_kgkqg")
 
 [node name="HTerrain" type="Node3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("3_eq7a5")
 centered = true
 _terrain_data = ExtResource("4_0t16j")
@@ -126,3 +134,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.191, 29.864, 22.377)
 [node name="Goal" parent="." instance=ExtResource("8_5yv5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.3493, 28.4154, 34.073)
 next_level = "scene_3d_2"
+
+[node name="Kickball" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8586, 21.6902, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Kickball"]
+use_collision = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kickball"]
+shape = SubResource("SphereShape3D_tx1vj")
+
+[node name="Pushable" type="RigidBody3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 24.6328, 0)
+mass = 2.25
+physics_material_override = SubResource("PhysicsMaterial_xxsue")
+lock_rotation = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pushable"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("BoxMesh_7lnw8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pushable"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("BoxShape3D_5dy3t")
