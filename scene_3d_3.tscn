@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b741enta1ec0n"]
+[gd_scene load_steps=13 format=3 uid="uid://b741enta1ec0n"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_rpcc3"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="2_ejt5t"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bala2ogmq27cs" path="res://player_3d.tscn" id="5_erqj6"]
 [ext_resource type="PackedScene" uid="uid://dpim4kqvinat4" path="res://goal.tscn" id="6_1bsyq"]
 [ext_resource type="PackedScene" uid="uid://dui7brlp1aghp" path="res://enemy_3d.tscn" id="7_y3ucc"]
+[ext_resource type="PackedScene" uid="uid://dxqx3l854xr4x" path="res://kickball.tscn" id="8_r3hmm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dxqf1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -69,3 +70,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.3711, 18.3346, -111.706)
 
 [node name="enemy3D3" parent="." instance=ExtResource("7_y3ucc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0753, 2.17875, 88.2572)
+
+[node name="Kickball" parent="." groups=["Ball"] instance=ExtResource("8_r3hmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.6866, 3.97903, -112.865)

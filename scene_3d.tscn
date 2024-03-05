@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bv8ra8bnwkunh" path="res://terrain/textures/Grass/Grass001_1K-JPG_Color.jpg" id="6_onpsw"]
 [ext_resource type="PackedScene" uid="uid://1v843qr3enho" path="res://playerhud_3d.tscn" id="7_74g1h"]
 [ext_resource type="PackedScene" uid="uid://dpim4kqvinat4" path="res://goal.tscn" id="8_5yv5h"]
+[ext_resource type="PackedScene" uid="uid://dxqx3l854xr4x" path="res://kickball.tscn" id="9_l37wj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iceor"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -41,8 +42,6 @@ textures = [[ExtResource("6_onpsw"), null], [null, null]]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_dyu4y"]
 agent_height = 2.0
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_tx1vj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xxsue"]
 
@@ -135,14 +134,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.191, 29.864, 22.377)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.3493, 28.4154, 34.073)
 next_level = "scene_3d_2"
 
-[node name="Kickball" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8586, 21.6902, 0)
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="Kickball"]
-use_collision = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Kickball"]
-shape = SubResource("SphereShape3D_tx1vj")
+[node name="Kickball" parent="." instance=ExtResource("9_l37wj")]
 
 [node name="Pushable" type="RigidBody3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 24.6328, 0)

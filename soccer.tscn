@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://dl4duhsh0ntgi"]
+
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_2xkag"]
+[ext_resource type="Resource" path="res://terrain/map2/data.hterrain" id="2_ykvr4"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_fk8wl"]
+[ext_resource type="PackedScene" uid="uid://bala2ogmq27cs" path="res://player_3d.tscn" id="4_oahlj"]
+[ext_resource type="PackedScene" uid="uid://b6tkn4w4kgbi4" path="res://soccer_goal.tscn" id="5_4lb5q"]
+[ext_resource type="PackedScene" uid="uid://dxqx3l854xr4x" path="res://kickball.tscn" id="6_r0a31"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c0cqx"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_fsjwy"]
+sky_material = SubResource("ProceduralSkyMaterial_c0cqx")
+
+[sub_resource type="Environment" id="Environment_3p87n"]
+background_mode = 2
+sky = SubResource("Sky_fsjwy")
+tonemap_mode = 2
+
+[sub_resource type="Resource" id="Resource_f25no"]
+script = ExtResource("3_fk8wl")
+mode = 0
+textures = [[], []]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5rgfn"]
+
+[node name="Soccer" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3p87n")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(1, 0.811765, 0, 1)
+shadow_enabled = true
+
+[node name="HTerrain" type="Node3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+script = ExtResource("1_2xkag")
+map_scale = Vector3(2, 1, 1)
+centered = true
+_terrain_data = ExtResource("2_ykvr4")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_f25no")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+
+[node name="player3D" parent="." instance=ExtResource("4_oahlj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39414, 0.0819271, 0.550005)
+
+[node name="Kickball" parent="." instance=ExtResource("6_r0a31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.732, 0)
+mass = 0.27
+physics_material_override = SubResource("PhysicsMaterial_5rgfn")
+
+[node name="SoccerGoal" parent="." instance=ExtResource("5_4lb5q")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -45.2943, -1.19209e-07, 3.34188)
+
+[node name="SoccerGoal2" parent="." instance=ExtResource("5_4lb5q")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 49.1523, -1.19209e-07, 3.34188)
