@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bua0yeoag6313"]
+[gd_scene load_steps=13 format=3 uid="uid://bua0yeoag6313"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_up5mf"]
 [ext_resource type="Resource" path="res://terrain/map2/data.hterrain" id="2_igm5t"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bala2ogmq27cs" path="res://player_3d.tscn" id="4_x7ix0"]
 [ext_resource type="PackedScene" uid="uid://1v843qr3enho" path="res://playerhud_3d.tscn" id="5_yqlbl"]
 [ext_resource type="PackedScene" uid="uid://dpim4kqvinat4" path="res://goal.tscn" id="7_6jr41"]
+[ext_resource type="PackedScene" uid="uid://dui7brlp1aghp" path="res://enemy_3d.tscn" id="8_l7pka"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dgfkw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -123,3 +124,6 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -157.08, -21.6979, -190
 use_collision = true
 radius = 8.845
 height = 119.848
+
+[node name="enemy3D" parent="." instance=ExtResource("8_l7pka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.215, 1.03628, -171.396)

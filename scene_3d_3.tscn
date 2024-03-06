@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b741enta1ec0n"]
+[gd_scene load_steps=14 format=3 uid="uid://b741enta1ec0n"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_rpcc3"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="2_ejt5t"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dpim4kqvinat4" path="res://goal.tscn" id="6_1bsyq"]
 [ext_resource type="PackedScene" uid="uid://dui7brlp1aghp" path="res://enemy_3d.tscn" id="7_y3ucc"]
 [ext_resource type="PackedScene" uid="uid://dxqx3l854xr4x" path="res://kickball.tscn" id="8_r3hmm"]
+[ext_resource type="PackedScene" uid="uid://1v843qr3enho" path="res://playerhud_3d.tscn" id="9_x5aga"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dxqf1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -38,6 +39,7 @@ light_energy = 9.242
 shadow_enabled = true
 
 [node name="HTerrain" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_rpcc3")
 centered = true
 _terrain_data = ExtResource("2_gjinr")
@@ -57,19 +59,17 @@ shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 
 [node name="player3D" parent="." instance=ExtResource("5_erqj6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.0965, 17.3133, 24.4522)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7139, 4.1845, -33.9081)
 
 [node name="Goal" parent="." instance=ExtResource("6_1bsyq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.734, 28.7459, -115.022)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3188, 12.0125, -27.457)
+next_level = "soccer"
+
+[node name="Kickball" parent="." instance=ExtResource("8_r3hmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9812, 3.97445, -30.0953)
+mass = 0.21
+
+[node name="playerhud3d" parent="." instance=ExtResource("9_x5aga")]
 
 [node name="enemy3D" parent="." instance=ExtResource("7_y3ucc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.4939, 10.8553, -31.8959)
-
-[node name="enemy3D2" parent="." instance=ExtResource("7_y3ucc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.3711, 18.3346, -111.706)
-
-[node name="enemy3D3" parent="." instance=ExtResource("7_y3ucc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0753, 2.17875, 88.2572)
-
-[node name="Kickball" parent="." groups=["Ball"] instance=ExtResource("8_r3hmm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.6866, 3.97903, -112.865)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.811, 7.64136, -34.5234)

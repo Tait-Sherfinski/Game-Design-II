@@ -5,4 +5,4 @@ extends Area3D
 func _on_body_entered(body):
 	if body.is_in_group("Ball"):
 		OS.alert("Goal!")
-		
+		Ball.set_position(Vector3(0, 1, 0))
