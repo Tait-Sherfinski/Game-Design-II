@@ -1,0 +1,32 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bpy6o8gq82mi"
+path="res://.godot/imported/Funky Vihelmo.glb-3e8d5a686e967df6a81c0e33b8fdd6cb.scn"
+
+[deps]
+
+source_file="res://models/Funky Vihelmo.glb"
+dest_files=["res://.godot/imported/Funky Vihelmo.glb-3e8d5a686e967df6a81c0e33b8fdd6cb.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={}
+gltf/embedded_image_handling=1
