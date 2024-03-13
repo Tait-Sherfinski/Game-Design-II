@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://xwxfjhnxqmxw"]
+
+[ext_resource type="PackedScene" uid="uid://l7ryy80w6rfa" path="res://assets/Cutscene/char_with_anim.glb" id="1_0ktvb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_38fou"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01133, 2.22307)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_38fou")
+
+[node name="char_with_anim" parent="." instance=ExtResource("1_0ktvb")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
