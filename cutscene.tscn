@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2jab4xrce8j3"]
+[gd_scene load_steps=8 format=3 uid="uid://c2jab4xrce8j3"]
 
 [ext_resource type="PackedScene" uid="uid://qktfp7n58gjl" path="res://assets/Cutscene/city_scene_tokyo.tscn" id="1_n7ji6"]
 [ext_resource type="PackedScene" uid="uid://xwxfjhnxqmxw" path="res://char.tscn" id="2_dbal3"]
@@ -15,6 +15,25 @@ background_mode = 2
 sky = SubResource("Sky_525uh")
 tonemap_mode = 2
 
+[sub_resource type="Animation" id="Animation_hhrm0"]
+resource_name = "new_animation"
+length = 25.0
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody3D/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray(),
+"times": PackedFloat32Array()
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gw822"]
+_data = {
+"new_animation": SubResource("Animation_hhrm0")
+}
+
 [node name="Cutscene" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -22,15 +41,23 @@ environment = SubResource("Environment_dmjts")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 28.7412, 0)
+light_color = Color(1, 0.792157, 0, 1)
 shadow_enabled = true
 
-[node name="city_scene_tokyo" parent="." instance=ExtResource("1_n7ji6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.304047, 0, 2.01029)
-
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_dbal3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96079, 0.469759, 1.59233)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.05393, 1.00135, 1.59233)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_gw822")
+}
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.573576, -0.0642699, 0.816627, 0, 0.996917, 0.0784591, -0.819152, -0.0450023, 0.571808, 0, 0, 0)
+transform = Transform3D(0.573576, -0.06427, 0.816627, 0, 0.996917, 0.0784591, -0.819152, -0.0450023, 0.571808, 9.07076, 1.99112, 2.76066)
+fov = 78.1395
+
+[node name="city_scene_tokyo" parent="." instance=ExtResource("1_n7ji6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
