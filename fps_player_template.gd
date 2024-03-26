@@ -25,6 +25,22 @@ var t_bob = 0.0
 var damage_shader = preload("res://assets/shaders/take_damage.tres")
 @onready var head = $Head
 
+var is_reloading = false
+var blaster
+var muzzle
+var dart_scene = preload("res://fps_dart.tscn")
+
+var spray_lock = 0.0
+var NORMAL_SPRAY_AMOUNT = 0.03
+var CROUCH_SPRAY_AMOUNT = 0.01
+var SPRAY_AMOUNT = NORMAL_SPRAY_AMOUNT
+var FIRING_DELAY = 0.075
+var ATTACK = 5.0
+
+var CLIP_SIZE = 30
+var AMMO = CLIP_SIZE
+var TOTAL_AMMO = 150
+
 
 func _physics_process(delta):
 	# Add the gravity.
