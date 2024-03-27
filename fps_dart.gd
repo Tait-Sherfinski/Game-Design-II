@@ -26,7 +26,7 @@ func do_damage(group):
 			if $Area3D.overlaps_area(entity.head):
 				entity.take_damage(ATTACK*2.5 + crit, true, true, spawn_origin)
 			if $Area3D.overlaps_body(entity):
-				entity.take_damge(ATTACK + crit, true, false, spawn_origin)
+				entity.take_damage(ATTACK + crit, true, false, spawn_origin)
 				
 func do_fire(camera, muzzle, spray_amount, attack=ATTACK):
 	ATTACK = attack
