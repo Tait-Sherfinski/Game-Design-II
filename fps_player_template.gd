@@ -114,9 +114,22 @@ func _physics_process(delta):
 		$CollisionShape3D.shape.radius = CROUCH_COLLISION_RAD
 		$MeshInstance3D.scale.y = CROUCH_HEIGHT/NORMAL_HEIGHT
 		$Head.position.y = lerp($Head.position.y, CROUCH_HEAD, delta*5.0)
-		SPRAY_AMOUNT = CROUCH_SPRAY_AMOUNT	
+		SPRAY_AMOUNT = CROUCH_SPRAY_AMOUNT
+	if Input.is_action_just_released("crouch"):
+		$CollisionShape3D.shape.height = NORMAL_HEIGHT
+		$CollisionShape3D.shape.radius = NORMAL_COLISION_RAD
+		$MeshInstance3D.scale.y = 1.0	
+		$Head.position.y = lerp($Head.position.y, NORMAL_HEAD, delta*5.0)
+		SPRAY_AMOUNT = NORMAL_SPRAY_AMOUNT
 		
 	move_and_slide()
+	
+	if int(HEALTH) <= 0:
+		HEALTH = 0
+		await get_tree().create_timer(0.25).timeout
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		OS.alert("You Died!")
+		get_tree().reload_current_scene()
 	
 	if len(get_tree().get_nodes_in_group("Enemy")) <= 0:
 		await get_tree().create_timer(0.25).timeout
@@ -162,8 +175,8 @@ func take_damage(dmg, override=false, headshot=false, _spawn_origin=null):
 		damage_lock = 0.5
 		HEALTH -= dmg
 		var dmg_intensity = clamp(1.0-((HEALTH+0.01)/MAX_HEALTH), 0.1, 0.8)
-		$HUD/overlay.material = damage_shader.duplicate()
-		$HUD/overlay.material.set_shader_parameter("intensity", dmg_intensity)
+		# $HUD/overlay.material = damage_shader.duplicate()
+		# $HUD/overlay.material.set_shader_parameter("intensity", dmg_intensity)
 
 
 func headbob(time):
