@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://felxnrvasvyj"]
+
+[ext_resource type="PackedScene" uid="uid://3n1bj5teua2k" path="res://assets/maps2/assisi_city_scene.glb" id="1_c6qtt"]
+
+[node name="assisi_city_scene" instance=ExtResource("1_c6qtt")]

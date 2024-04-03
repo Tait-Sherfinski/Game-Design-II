@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2muqyu7ffgw1"]
+
+[ext_resource type="PackedScene" uid="uid://felxnrvasvyj" path="res://assisi_city_scene.tscn" id="1_5wxhi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q2i3k"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_vkbsb"]
+sky_material = SubResource("ProceduralSkyMaterial_q2i3k")
+
+[sub_resource type="Environment" id="Environment_6r33b"]
+background_mode = 2
+sky = SubResource("Sky_vkbsb")
+tonemap_mode = 2
+
+[node name="fps_world2" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6r33b")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 3997.92, 0)
+light_color = Color(1, 0.929412, 0, 1)
+shadow_enabled = true
+
+[node name="assisi_city_scene" parent="." instance=ExtResource("1_5wxhi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 250, 1)
