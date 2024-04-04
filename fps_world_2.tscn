@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2muqyu7ffgw1"]
+[gd_scene load_steps=7 format=3 uid="uid://b2muqyu7ffgw1"]
 
 [ext_resource type="PackedScene" uid="uid://felxnrvasvyj" path="res://assisi_city_scene.tscn" id="1_5wxhi"]
+[ext_resource type="PackedScene" uid="uid://dmi7mdaxrkd31" path="res://fps_player_template.tscn" id="2_4c1e5"]
+[ext_resource type="PackedScene" uid="uid://xhb1a32xt76l" path="res://fps_enemy_template.tscn" id="3_wn7bi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q2i3k"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -26,3 +28,9 @@ shadow_enabled = true
 
 [node name="assisi_city_scene" parent="." instance=ExtResource("1_5wxhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 250, 1)
+
+[node name="fps_player" parent="." instance=ExtResource("2_4c1e5")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 1103.47, 1266.66, 565.797)
+
+[node name="fps_enemy" parent="." instance=ExtResource("3_wn7bi")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -702.278, 1324.84, 522.337)
