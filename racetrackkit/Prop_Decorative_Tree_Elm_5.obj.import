@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://5ye2h1sej410"
+path="res://.godot/imported/Prop_Decorative_Tree_Elm_5.obj-ae0cf29eea1435a146ff184cd20d96ff.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Decorative_Tree_Elm_5.obj-ae0cf29eea1435a146ff184cd20d96ff.mesh"]
+
+source_file="res://racetrackkit/Prop_Decorative_Tree_Elm_5.obj"
+dest_files=["res://.godot/imported/Prop_Decorative_Tree_Elm_5.obj-ae0cf29eea1435a146ff184cd20d96ff.mesh", "res://.godot/imported/Prop_Decorative_Tree_Elm_5.obj-ae0cf29eea1435a146ff184cd20d96ff.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

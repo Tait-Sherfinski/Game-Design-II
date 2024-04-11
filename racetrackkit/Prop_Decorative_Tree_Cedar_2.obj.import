@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://1b1et8gik0ke"
+path="res://.godot/imported/Prop_Decorative_Tree_Cedar_2.obj-0150568818dac1d5d2c7489b36601023.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Decorative_Tree_Cedar_2.obj-0150568818dac1d5d2c7489b36601023.mesh"]
+
+source_file="res://racetrackkit/Prop_Decorative_Tree_Cedar_2.obj"
+dest_files=["res://.godot/imported/Prop_Decorative_Tree_Cedar_2.obj-0150568818dac1d5d2c7489b36601023.mesh", "res://.godot/imported/Prop_Decorative_Tree_Cedar_2.obj-0150568818dac1d5d2c7489b36601023.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://choen38tp5frq"
+path="res://.godot/imported/Prop_Obstacle_Hammer_Housing_Single.obj-2e5b10c92f311a36c167943bdb2fee98.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Obstacle_Hammer_Housing_Single.obj-2e5b10c92f311a36c167943bdb2fee98.mesh"]
+
+source_file="res://racetrackkit/Prop_Obstacle_Hammer_Housing_Single.obj"
+dest_files=["res://.godot/imported/Prop_Obstacle_Hammer_Housing_Single.obj-2e5b10c92f311a36c167943bdb2fee98.mesh", "res://.godot/imported/Prop_Obstacle_Hammer_Housing_Single.obj-2e5b10c92f311a36c167943bdb2fee98.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

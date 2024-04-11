@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bcbglhuhuslip"
+path="res://.godot/imported/Terrain_Hill_Corner_Outer_3x3.obj-843a777aac160682149151475f2d3270.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Terrain_Hill_Corner_Outer_3x3.obj-843a777aac160682149151475f2d3270.mesh"]
+
+source_file="res://racetrackkit/Terrain_Hill_Corner_Outer_3x3.obj"
+dest_files=["res://.godot/imported/Terrain_Hill_Corner_Outer_3x3.obj-843a777aac160682149151475f2d3270.mesh", "res://.godot/imported/Terrain_Hill_Corner_Outer_3x3.obj-843a777aac160682149151475f2d3270.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

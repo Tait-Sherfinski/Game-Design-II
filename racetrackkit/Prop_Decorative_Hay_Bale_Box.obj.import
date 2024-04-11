@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ba55negxsr8j0"
+path="res://.godot/imported/Prop_Decorative_Hay_Bale_Box.obj-ffef50301fe30a471eb58551ea75d388.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Decorative_Hay_Bale_Box.obj-ffef50301fe30a471eb58551ea75d388.mesh"]
+
+source_file="res://racetrackkit/Prop_Decorative_Hay_Bale_Box.obj"
+dest_files=["res://.godot/imported/Prop_Decorative_Hay_Bale_Box.obj-ffef50301fe30a471eb58551ea75d388.mesh", "res://.godot/imported/Prop_Decorative_Hay_Bale_Box.obj-ffef50301fe30a471eb58551ea75d388.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

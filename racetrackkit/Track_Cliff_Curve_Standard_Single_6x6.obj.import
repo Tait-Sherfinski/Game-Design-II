@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://u6u351311vvy"
+path="res://.godot/imported/Track_Cliff_Curve_Standard_Single_6x6.obj-e3ff5428c076fb1228e32ae558ce79ba.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Track_Cliff_Curve_Standard_Single_6x6.obj-e3ff5428c076fb1228e32ae558ce79ba.mesh"]
+
+source_file="res://racetrackkit/Track_Cliff_Curve_Standard_Single_6x6.obj"
+dest_files=["res://.godot/imported/Track_Cliff_Curve_Standard_Single_6x6.obj-e3ff5428c076fb1228e32ae558ce79ba.mesh", "res://.godot/imported/Track_Cliff_Curve_Standard_Single_6x6.obj-e3ff5428c076fb1228e32ae558ce79ba.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

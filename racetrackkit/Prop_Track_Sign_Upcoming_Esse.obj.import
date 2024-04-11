@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bgcmybr34ui20"
+path="res://.godot/imported/Prop_Track_Sign_Upcoming_Esse.obj-538cd075c1929e3f83d016d655f5d24d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Track_Sign_Upcoming_Esse.obj-538cd075c1929e3f83d016d655f5d24d.mesh"]
+
+source_file="res://racetrackkit/Prop_Track_Sign_Upcoming_Esse.obj"
+dest_files=["res://.godot/imported/Prop_Track_Sign_Upcoming_Esse.obj-538cd075c1929e3f83d016d655f5d24d.mesh", "res://.godot/imported/Prop_Track_Sign_Upcoming_Esse.obj-538cd075c1929e3f83d016d655f5d24d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

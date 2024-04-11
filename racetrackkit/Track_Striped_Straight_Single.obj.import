@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dnan1hnjnqj44"
+path="res://.godot/imported/Track_Striped_Straight_Single.obj-6cf9dcb66ca06ddec7c51ee06da11370.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Track_Striped_Straight_Single.obj-6cf9dcb66ca06ddec7c51ee06da11370.mesh"]
+
+source_file="res://racetrackkit/Track_Striped_Straight_Single.obj"
+dest_files=["res://.godot/imported/Track_Striped_Straight_Single.obj-6cf9dcb66ca06ddec7c51ee06da11370.mesh", "res://.godot/imported/Track_Striped_Straight_Single.obj-6cf9dcb66ca06ddec7c51ee06da11370.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
