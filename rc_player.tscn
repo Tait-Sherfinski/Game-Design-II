@@ -256,6 +256,7 @@ skeleton = NodePath("")
 
 [node name="centerMass" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.259658, 0)
+top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="centerMass"]
 transform = Transform3D(1, 0, 0, 0, 0.97237, 0.233445, 0, -0.233445, 0.97237, 0, 1.6, 4)
