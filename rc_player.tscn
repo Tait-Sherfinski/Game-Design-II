@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://btxwr3y0b288d"]
+[gd_scene load_steps=15 format=3 uid="uid://btxwr3y0b288d"]
 
 [ext_resource type="Script" path="res://rc_player.gd" id="1_2msvf"]
 
@@ -203,6 +203,9 @@ shadow_mesh = SubResource("ArrayMesh_qntj3")
 [sub_resource type="LabelSettings" id="LabelSettings_7u2hj"]
 font_size = 32
 
+[sub_resource type="LabelSettings" id="LabelSettings_nbphs"]
+font_size = 32
+
 [node name="race" type="VehicleBody3D"]
 mass = 80.0
 script = ExtResource("1_2msvf")
@@ -271,3 +274,9 @@ offset_right = 97.0
 grow_vertical = 0
 text = "0 mph"
 label_settings = SubResource("LabelSettings_7u2hj")
+
+[node name="Label2" type="Label" parent="."]
+offset_right = 197.0
+offset_bottom = 91.0
+text = "Lap: "
+label_settings = SubResource("LabelSettings_nbphs")

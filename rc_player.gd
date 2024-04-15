@@ -13,22 +13,22 @@ func calc_engine_force(accel, rpm):
 
 func _physics_process(delta):
 	steering = lerp(steering, 
-					Input.get_axis("ui_right", "ui_left") * MAX_STEER, 
-					delta * 5)
+	Input.get_axis("ui_right", "ui_left") * MAX_STEER, 
+	delta * 5)
 	var accel = Input.get_axis("ui_down", "ui_up") * HORSE_POWER
 	$backLeft.engine_force = calc_engine_force(accel, abs($backLeft.get_rpm()))
 	$backRight.engine_force = calc_engine_force(accel, abs($backRight.get_rpm()))
 	
 	var fwd_mps = abs((self.linear_velocity * self.transform.basis).z)
 	$Label.text = "%d mph" % (fwd_mps * 2.23694)
+	$Label2.text = "Lap: " + str(lap) + "/3"
 	
 	$centerMass.global_position = $centerMass.global_position.lerp(
-											  self.global_position, delta * 20.0)
+	self.global_position, delta * 20.0)
 	$centerMass.transform = $centerMass.transform.interpolate_with(
-										self.transform, delta * 5.0)
+	self.transform, delta * 5.0)
 	$centerMass/Camera3D.look_at(self.global_position.lerp(
-								 self.global_position + self.linear_velocity,
-								 delta * 5.0))
+	self.global_position + self.linear_velocity, delta * 5.0))
 	check_and_right_vehicle()
 
 
@@ -38,3 +38,12 @@ func check_and_right_vehicle():
 		current_rotation.x = 0  # Reset pitch
 		current_rotation.z = 0  # Reset roll
 		self.rotation_degrees = current_rotation
+
+var lap = 0
+
+func _on_area_3d_body_entered(body):
+	if body.is_in_group("racer"):
+		lap += 1
+	if lap == 3:
+		OS.alert("End race")
+		get_tree().quit()

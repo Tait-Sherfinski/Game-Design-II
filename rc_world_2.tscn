@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpt0fxuqytfaq"]
+[gd_scene load_steps=7 format=3 uid="uid://cpt0fxuqytfaq"]
 
 [ext_resource type="MeshLibrary" uid="uid://djtc0yfuvmqcr" path="res://assets/road_tiles.tres" id="1_dx728"]
 [ext_resource type="PackedScene" uid="uid://btxwr3y0b288d" path="res://rc_player.tscn" id="2_uwkk8"]
@@ -15,6 +15,9 @@ background_mode = 2
 sky = SubResource("Sky_cunn7")
 tonemap_mode = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wva3t"]
+size = Vector3(0.27854, 3.25456, 5.93795)
+
 [node name="rc_world2" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -26,6 +29,7 @@ shadow_enabled = true
 environment = SubResource("Environment_asfrg")
 
 [node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh_library = ExtResource("1_dx728")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
@@ -34,5 +38,14 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="race" parent="." instance=ExtResource("2_uwkk8")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 11, 0, -2)
+[node name="race" parent="." groups=["racer"] instance=ExtResource("2_uwkk8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.4195, 0, -3.65636)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9114, 2.27146, -3.94599)
+shape = SubResource("BoxShape3D_wva3t")
+
+[connection signal="body_entered" from="Area3D" to="race" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="race" method="_on_area_3d_body_exited"]
