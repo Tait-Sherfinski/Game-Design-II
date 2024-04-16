@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dx4bjy8ywkrhp"]
+[gd_scene load_steps=7 format=3 uid="uid://dx4bjy8ywkrhp"]
 
 [ext_resource type="PackedScene" uid="uid://btxwr3y0b288d" path="res://rc_player.tscn" id="1_s3jm3"]
 [ext_resource type="MeshLibrary" uid="uid://djtc0yfuvmqcr" path="res://assets/road_tiles.tres" id="2_fuhy2"]
+[ext_resource type="PackedScene" uid="uid://84pkg88qrhsx" path="res://race_goal.tscn" id="3_mwhuy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phc7p"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,3 +37,6 @@ data = {
 "cells": PackedInt32Array(-3, 0, 655558, 65535, 65535, 655562, 4, 65534, 201, 65534, 65534, 201, 5, 65535, 655561, 10, 65534, 201, 11, 65535, 655561, 16, 65534, 201, 17, 65535, 655561, 22, 65534, 201, 23, 65535, 655561, 28, 65534, 201, 29, 65535, 655561, 34, 65534, 201, 35, 65535, 655497, 38, 5, 1441953, 38, 6, 1048737, 38, 13, 1441953, 38, 14, 1048763, 36, 15, 196, 33, 14, 196, 30, 13, 196, 27, 12, 196, 24, 11, 202, 19, 11, 655562, 18, 11, 139, 14, 6, 655499, 13, 6, 205, 10, 5, 201, 5, 6, 655561, 4, 5, 201, 65535, 6, 655561, 65534, 5, 201, 65529, 6, 655561, 65528, 5, 186, 65526, 2, 1441978, 65529, 0, 655561, 20, 3, 1441879, 23, 1, 87, 24, 1, 1048663)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Area3D" parent="." instance=ExtResource("3_mwhuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1695, 2.96279, 24.1092)

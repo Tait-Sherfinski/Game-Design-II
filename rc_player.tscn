@@ -206,7 +206,7 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_nbphs"]
 font_size = 32
 
-[node name="race" type="VehicleBody3D"]
+[node name="race" type="VehicleBody3D" groups=["racer"]]
 mass = 80.0
 script = ExtResource("1_2msvf")
 

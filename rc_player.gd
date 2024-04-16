@@ -12,6 +12,7 @@ func calc_engine_force(accel, rpm):
 	return accel * MAX_TORQUE * (1 - rpm / MAX_RPM)
 
 func _physics_process(delta):
+	$Label2.text = "Lap: " + str(lap) + "/3"
 	steering = lerp(steering, 
 	Input.get_axis("ui_right", "ui_left") * MAX_STEER, 
 	delta * 5)
@@ -21,7 +22,6 @@ func _physics_process(delta):
 	
 	var fwd_mps = abs((self.linear_velocity * self.transform.basis).z)
 	$Label.text = "%d mph" % (fwd_mps * 2.23694)
-	$Label2.text = "Lap: " + str(lap) + "/3"
 	
 	$centerMass.global_position = $centerMass.global_position.lerp(
 	self.global_position, delta * 20.0)
@@ -39,11 +39,13 @@ func check_and_right_vehicle():
 		current_rotation.z = 0  # Reset roll
 		self.rotation_degrees = current_rotation
 
+
 var lap = 0
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("racer"):
 		lap += 1
-	if lap == 3:
-		OS.alert("End race")
+	if lap > 3:
+		$Label2.visible = false
+		OS.alert("End Race")
 		get_tree().quit()
