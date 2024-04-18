@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://clhhwjy8clef"]
+
+[ext_resource type="MeshLibrary" uid="uid://djtc0yfuvmqcr" path="res://assets/road_tiles.tres" id="1_woh17"]
+[ext_resource type="PackedScene" uid="uid://btxwr3y0b288d" path="res://rc_player.tscn" id="2_ewp60"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6h4u7"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_a2dbj"]
+sky_material = SubResource("ProceduralSkyMaterial_6h4u7")
+
+[sub_resource type="Environment" id="Environment_emgvm"]
+background_mode = 2
+sky = SubResource("Sky_a2dbj")
+tonemap_mode = 2
+
+[node name="rc_world3" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 35.8722, 0)
+light_color = Color(1, 0.929412, 0, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_emgvm")
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh_library = ExtResource("1_woh17")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65535, 0, 198, 65532, 0, 655565, 65531, 0, 205, 65526, 65535, 655565, 65525, 65535, 205, 65522, 65534, 186, 65520, 65531, 1441978, 65523, 65529, 655546, 65525, 65532, 1048777, 65526, 1, 1441993, 65525, 4, 1441987, 65524, 5, 1048771, 65526, 10, 186, 65527, 11, 655546, 65529, 14, 1048779, 65529, 15, 1048779, 65529, 16, 1048779, 65529, 17, 1048779, 65529, 18, 1048779, 65531, 20, 185, 65533, 19, 1048761, 65534, 18, 1441977, 0, 17, 655563, 1, 17, 655563, 2, 17, 655563, 3, 17, 655563, 4, 17, 655563, 6, 15, 1048761, 6, 14, 1048779, 6, 13, 1048779, 6, 12, 1048779, 6, 11, 1048779, 6, 10, 1048779, 6, 9, 1048779, 6, 8, 1048779, 6, 7, 1048779, 6, 6, 1048779, 6, 5, 1048779, 0, 0, 203, 1, 0, 203, 2, 0, 203, 3, 0, 203, 5, 1, 655545, 6, 4, 1048779, 6, 3, 1048779, 4, 0, 203)
+}
+
+[node name="race" parent="." instance=ExtResource("2_ewp60")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.84413, 1.6821, 3.18785)
