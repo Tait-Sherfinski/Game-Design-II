@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpt0fxuqytfaq"]
+[gd_scene load_steps=8 format=3 uid="uid://cpt0fxuqytfaq"]
 
 [ext_resource type="MeshLibrary" uid="uid://djtc0yfuvmqcr" path="res://assets/road_tiles.tres" id="1_dx728"]
 [ext_resource type="PackedScene" uid="uid://btxwr3y0b288d" path="res://rc_player.tscn" id="2_uwkk8"]
+[ext_resource type="PackedScene" uid="uid://djego4m4evqdr" path="res://rc_enemy.tscn" id="3_1saej"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_41ji3"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -47,5 +48,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.9385, 0.507623, -7.79697)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.17986, -0.276302)
 shape = SubResource("BoxShape3D_bt0ra")
+
+[node name="race2" parent="." instance=ExtResource("3_1saej")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 28.8606, 0, -6.03666)
 
 [connection signal="body_entered" from="Area3D" to="race" method="_on_area_3d_body_entered"]
