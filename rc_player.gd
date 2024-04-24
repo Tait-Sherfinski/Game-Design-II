@@ -40,7 +40,7 @@ func check_and_right_vehicle():
 		self.rotation_degrees = current_rotation
 
 
-var lap = 3
+var lap = 0
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("racer"):
@@ -58,3 +58,12 @@ func _on_area_3d_2_body_entered(body):
 		$Label2.visible = false
 		OS.alert("You Win!")
 		get_tree().quit()
+
+
+func _on_area_3d_3_body_entered(body):
+	if body.is_in_group("racer"):
+		lap += 1
+	if lap > 3:
+		$Label2.visible = false
+		OS.alert("End Race")
+		get_tree().change_scene_to_file("res://rc_world_2.tscn")
