@@ -5,6 +5,8 @@ const MAX_RPM = 300
 const MAX_TORQUE = 200
 const HORSE_POWER = 100
 
+@onready var aud_player = $AudioStreamPlayer3D
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
@@ -30,6 +32,9 @@ func _physics_process(delta):
 	$centerMass/Camera3D.look_at(self.global_position.lerp(
 	self.global_position + self.linear_velocity, delta * 5.0))
 	check_and_right_vehicle()
+	#if fwd_mps * 2.23694 > 0:
+		#aud_player.play()
+		#aud_player.volume_db = (fwd_mps * 2.23694) * 0.08
 
 
 func check_and_right_vehicle():

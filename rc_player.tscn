@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://btxwr3y0b288d"]
+[gd_scene load_steps=16 format=3 uid="uid://btxwr3y0b288d"]
 
 [ext_resource type="Script" path="res://rc_player.gd" id="1_2msvf"]
+[ext_resource type="AudioStream" uid="uid://ybounbp7ytj7" path="res://sounds/mixkit-fast-car-drive-by-1538.wav" id="2_cxwph"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_malt7"]
 resource_name = "paintRed"
@@ -280,3 +281,7 @@ offset_right = 197.0
 offset_bottom = 91.0
 text = "Lap: "
 label_settings = SubResource("LabelSettings_nbphs")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_cxwph")
+doppler_tracking = 2
