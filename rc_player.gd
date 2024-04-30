@@ -32,10 +32,11 @@ func _physics_process(delta):
 	$centerMass/Camera3D.look_at(self.global_position.lerp(
 	self.global_position + self.linear_velocity, delta * 5.0))
 	check_and_right_vehicle()
-	if accel > 0:
-		aud_player.playing = true
-	else:
+	if accel == 0:
 		aud_player.playing = false
+	else:
+		aud_player.playing = true
+	
 
 
 func check_and_right_vehicle():
