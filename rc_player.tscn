@@ -285,7 +285,7 @@ label_settings = SubResource("LabelSettings_nbphs")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 process_mode = 3
 stream = ExtResource("2_720i3")
-volume_db = 10.667
+volume_db = 22.857
 pitch_scale = 1.84
 autoplay = true
 doppler_tracking = 2

@@ -23,7 +23,8 @@ func _physics_process(delta):
 	$backRight.engine_force = calc_engine_force(accel, abs($backRight.get_rpm()))
 	
 	var fwd_mps = abs((self.linear_velocity * self.transform.basis).z)
-	$Label.text = "%d mph" % (fwd_mps * 2.23694)
+	var mph = fwd_mps * 2.23694
+	$Label.text = "%d mph" % mph
 	
 	$centerMass.global_position = $centerMass.global_position.lerp(
 	self.global_position, delta * 20.0)
@@ -32,10 +33,12 @@ func _physics_process(delta):
 	$centerMass/Camera3D.look_at(self.global_position.lerp(
 	self.global_position + self.linear_velocity, delta * 5.0))
 	check_and_right_vehicle()
-	if accel == 0:
+	
+	if mph <= 5:
 		aud_player.playing = false
 	else:
 		aud_player.playing = true
+		aud_player.volume_db = mph - aud_player.volume_db
 	
 
 
