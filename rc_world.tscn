@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dx4bjy8ywkrhp"]
+[gd_scene load_steps=8 format=3 uid="uid://dx4bjy8ywkrhp"]
 
 [ext_resource type="PackedScene" uid="uid://btxwr3y0b288d" path="res://rc_player.tscn" id="1_s3jm3"]
 [ext_resource type="MeshLibrary" uid="uid://djtc0yfuvmqcr" path="res://assets/road_tiles.tres" id="2_fuhy2"]
+[ext_resource type="AudioStream" uid="uid://casawuro8infn" path="res://sounds/S31-Winning the Race.ogg" id="3_mkqgf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phc7p"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -46,5 +47,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.753, 3.47589, 60.4891)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3551, 1.97478, -3.21391)
 shape = SubResource("BoxShape3D_owpv3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mkqgf")
 
 [connection signal="body_entered" from="Area3D3" to="race" method="_on_area_3d_3_body_entered"]
